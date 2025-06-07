@@ -1,0 +1,64 @@
+.home-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+  }
+  
+  .song-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .song-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  .song-poster {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .song-info {
+    padding: 15px 20px;
+  }
+  
+  .song-title {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #222;
+  }
+  
+  .song-artist,
+  .song-genre {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+    
+  .loading {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 40px 0;
+    color: #666;
+  }
+  
