@@ -25,6 +25,9 @@ public class MusicDbContext : DbContext
             .HasOne(pm => pm.Music)
             .WithMany()
             .HasForeignKey(pm => pm.MusicId);
-    }
 
+        modelBuilder.Entity<Playlist>()
+            .HasIndex(p => p.UserId)
+            .IsUnique();
+    }
 }

@@ -1,4 +1,6 @@
 using IdentityService.API.Data;
+using IdentityService.API.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,20 +16,23 @@ var conn = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<IdentityDbContext>(options =>
 options.UseSqlServer(conn));
 
+builder.Services.AddIdentity<CustomIdentityUser, CustomIdentityRole>()
+    .AddEntityFrameworkStores<IdentityService.API.Data.IdentityDbContext>()
+.AddDefaultTokenProviders();
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp",
-        policy =>
+    options.AddPolicy("AllowAll",
+        builder =>
         {
-            policy.WithOrigins("http://localhost:56937")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
+            builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
         });
 });
 
 var app = builder.Build();
-app.UseCors("AllowReactApp");
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -1,0 +1,166 @@
+.playlist-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .playlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .playlist-header h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .add-music-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .add-music-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .empty-playlist {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #666;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+  }
+  
+  .music-list {
+    display: grid;
+    gap: 15px;
+  }
+  
+  .music-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .music-info h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+  }
+  
+  .music-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .remove-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .remove-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .add-music-modal {
+    background-color: white;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .modal-content {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+  
+  .available-music-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .available-music-item:last-child {
+    border-bottom: none;
+  }
+  
+  .add-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .add-btn:hover {
+    background-color: #0b7dda;
+  }
+  
+  .error {
+    color: #f44336;
+    text-align: center;
+    margin-top: 20px;
+  }

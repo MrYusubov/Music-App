@@ -6,4 +6,7 @@ public class MusicCreateDto
     public string Artist { get; set; } = null!;
     public string Genre { get; set; } = null!;
     public string CloudinaryPublicId { get; set; } = null!;
+    public string PosterLink { get; set; } = null!;
 }
+
+

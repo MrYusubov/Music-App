@@ -6,7 +6,8 @@ public class Music
     public string Title { get; set; } = null!;
     public string Artist { get; set; } = null!;
     public string Genre { get; set; } = null!;
+    public string MusicCloudinaryId { get; set; }
+    public string PosterCloudinaryId { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-    public string CloudinaryPublicId { get; set; } = null!;
 }
+

@@ -15,18 +15,18 @@ builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange
 builder.Services.AddOcelot(builder.Configuration);
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp",
-        policy =>
+    options.AddPolicy("AllowAll",
+        builder =>
         {
-            policy.WithOrigins("http://localhost:56937")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
+            builder.WithOrigins("http://localhost:56937")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials();
         });
 });
 
 var app = builder.Build();
-app.UseCors("AllowReactApp");
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MusicService.API.Data;
+using MusicService.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,18 +15,19 @@ builder.Services.AddDbContext<MusicDbContext>(options =>
 options.UseSqlServer(conn));
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp",
-        policy =>
+    options.AddPolicy("AllowAll",
+        builder =>
         {
-            policy.WithOrigins("http://localhost:56937")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
+            builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
         });
 });
 
+builder.Services.AddSingleton<CloudinaryStorageService>();
+
 var app = builder.Build();
-app.UseCors("AllowReactApp");
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

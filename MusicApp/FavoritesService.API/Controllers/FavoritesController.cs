@@ -29,6 +29,7 @@ public class FavoritesController : ControllerBase
         return Ok();
     }
 
+
     [HttpDelete("{userId}/{musicId}")]
     public async Task<IActionResult> RemoveFromFavorites(string userId, int musicId)
     {

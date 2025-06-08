@@ -14,18 +14,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IFavoritesService, FavoritesService.API.Services.FavoritesService>();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp",
-        policy =>
+    options.AddPolicy("AllowAll",
+        builder =>
         {
-            policy.WithOrigins("http://localhost:56937")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
+            builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
         });
 });
 
 var app = builder.Build();
-app.UseCors("AllowReactApp");
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

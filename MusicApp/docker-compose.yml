@@ -1,11 +1,14 @@
 version: '3.8'
 
 services:
+
   musicservice:
     image: musicserviceapi:dev
     build:
       context: .
       dockerfile: MusicService.API/Dockerfile
+    volumes:
+      - cloudinary_data:/app/refs
     container_name: MusicService.API
     ports:
       - "7041:8080"
@@ -60,3 +63,6 @@ services:
 networks:
   musicapp-network:
     driver: bridge
+
+volumes:
+  cloudinary_data:
